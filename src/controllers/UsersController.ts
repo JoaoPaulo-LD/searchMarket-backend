@@ -6,14 +6,16 @@ class UsersController {
     const {
       name,
       email,
-      password
+      password,
+      city,
+      uf
     } = req.body
 
-    const data = { name, email, password }
+    const data = { name, email, password, city, uf }
 
     await knex('users').insert(data)
 
-    return res.json({ data })
+    return res.json({ name, email, city, uf })
   }
 
   async index(req: Request, res: Response) {

@@ -1,3 +1,4 @@
+require('dotenv/config')
 import express, { response } from 'express'
 import routes from './routes'
 
