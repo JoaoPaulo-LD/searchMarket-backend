@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-const knex = require('../database/connection')
+import knex from '../database/connection'
 
 class UsersController {
   async create(req: Request, res: Response) {
@@ -19,7 +19,13 @@ class UsersController {
   }
 
   async index(req: Request, res: Response) {
-    await knex('users').select('*')
+    const user_email = req.headers.email
+
+    const user = await knex('users')
+      .where('email', user_email)
+      .select('*')
+
+    return res.json(user)
   }
 }
 

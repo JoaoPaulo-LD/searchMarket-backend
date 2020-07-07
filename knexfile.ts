@@ -18,7 +18,10 @@ const knexfile = {
   test: {
     client: 'sqlite3',
     connection: {
-      filename: path.resolve(__dirname, 'test_db.sqlite')
+      filename: path.resolve(__dirname, 'src', 'database', 'test_db.sqlite')
+    },
+    migrations: {
+      directory: `${__dirname}/src/database/migrations`
     },
     useNullAsDefault: true,
   }

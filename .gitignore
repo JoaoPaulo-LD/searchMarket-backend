@@ -5,3 +5,5 @@ README.MD
 dist
 
 .env
+
+*.sqlite
